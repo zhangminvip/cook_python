@@ -16,8 +16,11 @@ class PeriodicTimer:
         while True:
             time.sleep(self._interval)
             with self._cv:
+                print('access  run')
+                # print('heihei')
                 # self._flag ^=1
                 self._cv.notify_all()
+            print('end  run')
 
 
     def wait_for_tick(self):
@@ -27,9 +30,12 @@ class PeriodicTimer:
         '''
 
         with self._cv:
+            print('access (wait)')
             # last_flag = self._flag
             # while last_flag == self._flag:
             self._cv.wait()
+            # print('haha')
+        print('end(wait)')
 
 
 ptimer = PeriodicTimer(5)
