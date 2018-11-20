@@ -24,7 +24,18 @@ if datepat.match(text2):
 else:
     print('nono')
 
+text = 'Today is 11/27/2012, PyCon starts 3/13/2013'
+list_date = datepat.findall(text)
+
+detepat2 = re.compile(r'(\d+)/(\d+)/(\d+)')
+m = detepat2.match('11/23/2018')
+group = m.groups()
+list_date2 = detepat2.findall(text)
+
+for month,day,year in detepat2.findall(text):
+    print('{}-{}-{}'.format(month,day,year))
 
 
-
+for m in detepat2.finditer(text):
+    print (m.groups())
 print ()
