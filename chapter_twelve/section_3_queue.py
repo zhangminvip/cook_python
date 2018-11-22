@@ -15,13 +15,15 @@ def producer(out_q):
 
             data = i
             out_q.put((data, evt))
+            print('generate one')
             if i == 5:
-                print('wait')
+                print('Waiting for product 5 to be consumed')
                 evt.wait()
-                print('complete')
+                print('producer: product 5 is consumed')
+        print('Put a termination signal into the task queue')
         out_q.put((_sentinel, evt))
     except queue.Full:
-        print('full')
+        print('queue is full')
         # logging.warning('queue item %r',data)
 
 def consumer(in_q):
@@ -31,7 +33,7 @@ def consumer(in_q):
             data, evt = in_q.get(timeout=5.0)
             if data is _sentinel:
                 break
-            print(data)
+            print(data,'is consumed')
             in_q.task_done()
             evt.set()
         except queue.Empty:
@@ -39,9 +41,9 @@ def consumer(in_q):
 
 
 q = Queue()
-# t1 = Thread(target=producer, args=(q,))
+t1 = Thread(target=producer, args=(q,))
 t2 = Thread(target=consumer, args=(q,))
-# t1.start()
+t1.start()
 t2.start()
 
 # q.join()
