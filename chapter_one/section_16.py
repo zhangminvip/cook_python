@@ -20,3 +20,6 @@ def is_int(val):
 ivals =  list(filter(is_int, values))
 print(ivals)
 
+clip_neg = [n if n >0 else 0 for n in mylist]
+print(clip_neg)
+
