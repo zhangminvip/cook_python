@@ -5,7 +5,9 @@ import tempfile
 
 def main():
     # print(len(sys.argv), sys.argv[0])
-    if len(sys.argv) > 1 and sys.argv[1] == '-P':
+    # if len(sys.argv) > 1 and sys.argv[1] == '-P':
+    #     pass
+    create_diagram(DiagramFactory())
 
 
 def create_diagram(factory):
@@ -14,6 +16,21 @@ def create_diagram(factory):
     text = factory.make_text(7, 3, 'Abstract Factory')
     diagram.add(rectangle)
     diagram.add(text)
+
+    # F1
+    # for x,l in enumerate(diagram.diagram):
+    #     s = ''
+    #     for y,char in enumerate(l):
+    #         s += char
+    #     print(s)
+
+    # F2
+    # for x in range(len(diagram.diagram)):
+    #     s = ''
+    #     for y in range(len(diagram.diagram[x])):
+    #         s += diagram.diagram[x][y]
+    #     print(s)
+
     return diagram
 
 
