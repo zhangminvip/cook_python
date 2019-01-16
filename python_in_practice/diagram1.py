@@ -64,5 +64,13 @@ class Rectangle:
         self.rows = _create_rectangle(width, height,
                                       BLANK if fill == 'white' else '%')
 
+class Text:
+
+    def __init__(self, x, y, text, fontsize):
+        self.x = x
+        self.y = y
+        self.rows = [list(text)]
+
+
 if __name__ == '__main__':
     main()
