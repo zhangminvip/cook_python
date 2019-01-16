@@ -21,6 +21,9 @@ class DiagramFactory:
                        stroke='black'):
         return Rectangle(x, y, width, height, fill, stroke)
 
+    def make_text(self, x, y, text, fontsize=12):
+        return Text(x, y, text, fontsize)
+
 
 
 
