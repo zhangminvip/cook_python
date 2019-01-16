@@ -18,7 +18,10 @@ class DiagramFactory:
         return Diagram(width, height)
 
 
-BLANK = ''
+BLANK = ' '
+CORNER = '+'
+HORIZONTAL = '-'
+VERTICAL = '|'
 
 
 class Diagram:
