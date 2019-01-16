@@ -52,5 +52,14 @@ def _create_rectangle(width, height, fill):
         rows[y][x] = CORNER
     return rows
 
+
+class Rectangle:
+
+    def __init__(self, x, y, width, height, fill, stroke):
+        self.x = x
+        self.y = y
+        self.rows = _create_rectangle(width, height,
+                                      BLANK if fill == 'white' else '%')
+
 if __name__ == '__main__':
     main()
