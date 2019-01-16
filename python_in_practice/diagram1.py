@@ -12,7 +12,7 @@ def create_diagram(factory):
     diagram = factory.make_diagram(30, 7)
     rectangle = factory.make_rectangle(4,1, 22, 5, 'yellow')
     text = factory.make_text(7, 3, 'Abstract Factory')
-    
+
 
 
 class DiagramFactory:
@@ -43,6 +43,13 @@ class Diagram:
         self.width = width
         self.height = height
         self.diagram = _create_rectangle(self.width, self.height, BLANK)
+
+    def add(self, component):
+        for y, row in enumerate(component.rows):
+            for x, char in enumerate(row):
+                self.diagram[y + component.y][x + component.x] = char
+
+
 
 
 def _create_rectangle(width, height, fill):
