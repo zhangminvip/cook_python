@@ -16,6 +16,7 @@ def create_diagram(factory):
     text = factory.make_text(7, 3, 'Abstract Factory')
     diagram.add(rectangle)
     diagram.add(text)
+    return diagram
 
     # F1
     # for x,l in enumerate(diagram.diagram):
@@ -68,6 +69,9 @@ class Diagram:
         for y, row in enumerate(component.rows):
             for x, char in enumerate(row):
                 self.diagram[y + component.y][x + component.x] = char
+
+    def save(self, filenameOrFile):
+        
 
 
 
