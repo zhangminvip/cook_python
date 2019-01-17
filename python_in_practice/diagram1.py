@@ -7,7 +7,8 @@ def main():
     # print(len(sys.argv), sys.argv[0])
     # if len(sys.argv) > 1 and sys.argv[1] == '-P':
     #     pass
-    create_diagram(DiagramFactory())
+    textFilename = os.path.join(os.getcwd(), "diagram.txt")
+    create_diagram(DiagramFactory()).save(textFilename)
 
 
 def create_diagram(factory):
@@ -71,7 +72,16 @@ class Diagram:
                 self.diagram[y + component.y][x + component.x] = char
 
     def save(self, filenameOrFile):
-        
+        file = None if isinstance(filenameOrFile, str) else filenameOrFile
+        try:
+            if file is None:
+                file = open(filenameOrFile, "w", encoding="utf-8")
+            for row in self.diagram:
+                print("".join(row), file=file)
+        finally:
+            if isinstance(filenameOrFile, str) and file is not None:
+                file.close()
+
 
 
 
