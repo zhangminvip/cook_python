@@ -4,11 +4,14 @@ import tempfile
 
 
 def main():
-    # print(len(sys.argv), sys.argv[0])
-    # if len(sys.argv) > 1 and sys.argv[1] == '-P':
-    #     pass
+    print(len(sys.argv), sys.argv[0])
+    if len(sys.argv) > 1 and sys.argv[1] == '-P':
+        create_diagram(DiagramFactory()).save(sys.stdout)
+        return
+
     textFilename = os.path.join(os.getcwd(), "diagram.txt")
     create_diagram(DiagramFactory()).save(textFilename)
+    print('wrote', textFilename)
 
 
 def create_diagram(factory):
