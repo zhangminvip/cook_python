@@ -132,5 +132,23 @@ class Text:
         self.rows = [list(text)]
 
 
+SVG_START = """<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+    width="{pxwidth}px" height="{pxheight}px">"""
+
+SVG_END = "</svg>\n"
+
+SVG_RECTANGLE = """<rect x="{x}" y="{y}" width="{width}" \
+height="{height}" fill="{fill}" stroke="{stroke}"/>"""
+
+SVG_TEXT = """<text x="{x}" y="{y}" text-anchor="left" \
+font-family="sans-serif" font-size="{fontsize}">{text}</text>"""
+
+SVG_SCALE = 20
+
+
 if __name__ == '__main__':
     main()
