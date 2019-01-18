@@ -56,14 +56,16 @@ class DiagramFactory:
 class SvgDiagramFactory(DiagramFactory):
 
     def make_diagram(self, width, height):
-        return SvgDiagramFactory
+        return SvgDiagram(width, height)
 
-    def make_rectangle(self, x, y, width, height, fill='white',
-                       stroke='black'):
-        return SvgDiagramFactory(x, y, width, height, fill, stroke)
+
+    def make_rectangle(self, x, y, width, height, fill="white",
+            stroke="black"):
+        return SvgRectangle(x, y, width, height, fill, stroke)
+
 
     def make_text(self, x, y, text, fontsize=12):
-        return SvgDiagramFactory(x, y, text, fontsize)
+        return SvgText(x, y, text, fontsize)
 
 
 
