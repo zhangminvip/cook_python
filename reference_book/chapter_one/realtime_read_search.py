@@ -1,8 +1,5 @@
 # coding:utf-8
-
 import time
-
-
 
 def print_matches(matchtext):
     print('Looking for ', matchtext)
@@ -11,9 +8,6 @@ def print_matches(matchtext):
         if matchtext in line:
             print(line)
 
-
-
-# 这个函数不能读取一个持续增长的日志文件，
 def tail(f):
     # f.seek(0, 2)
     while True:
