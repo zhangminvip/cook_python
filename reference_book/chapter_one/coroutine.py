@@ -5,4 +5,3 @@ def print_matches(matchtext):
         if matchtext in line:
             print(line)
 
-
