@@ -1,0 +1,37 @@
+s = set([1, 2, 3, 4])
+print(s)
+f = frozenset([1, 2, 3, 4, 5])
+print(f)
+tuple_init = set((1, 23, 4))
+dict_init = set({1, 2, 3})
+print(tuple_init, dict_init)
+s.add(6)
+print(s)
+
+# t can be any object that supports iteration
+t = [1, 2, 7]
+super_t = [1, 2, 3, 4, 5, 6, 7, 8]
+sub_t = [1, 2]
+
+# s.update(t)
+print(s)
+# s.intersection_update(t)
+print(s)
+# s.difference_update(t)
+print(s)
+s.discard(5)
+print(s)
+# s.remove(5)
+print(s)
+print(s.union(t))
+print(s.intersection(t))
+print(s.issubset(super_t))
+print(s.issuperset(sub_t))
+print(s.difference(t))
+print(s.symmetric_difference(t))
+print(s.symmetric_difference_update(t))
+print(s)
+print(s)
+print(s.pop())
+print(s)
+print(s.pop())
