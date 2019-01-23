@@ -23,4 +23,14 @@ d = [{'name':'zhangmin','age':12},{'name':'wangsi','age':10},{'name':'limin','ag
 d.sort(reverse=True,key=lambda x: x['age'])
 print(d)
 
+copy_test = [1,2,[2,3]]
+c = copy_test.copy()
+print(c,'*'*3 ,copy_test)
+c[2][1] = 4
+print(c,'*'*3 ,copy_test)
+c[0] = 2
+print(c,'*'*3 ,copy_test)
+
+
+
 
