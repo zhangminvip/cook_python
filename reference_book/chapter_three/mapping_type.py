@@ -33,9 +33,20 @@ persons = {'person': [zhangmin, wang, zhou]}
 
 
 # python2 :list python3: iterator
-print(type(zhangmin.items()))
-print(zhangmin.items())
-print(zhangmin.keys())
-print(list(zhangmin)) #save keys
-print(list(zhangmin.items()))  # save all
+# print(type(zhangmin.items()))
+# print(zhangmin.items())
+# print(zhangmin.keys())
+# print(list(zhangmin)) #save keys
+# print(list(zhangmin.items()))  # save all
+
+
+print(zhangmin)
+c = zhangmin.copy()
+print(id(c),id(zhangmin))
+c['age'] = 100
+print(c,zhangmin)
+c['friend'].append(5)
+print(c,zhangmin)
+
+
 
