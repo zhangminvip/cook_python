@@ -13,5 +13,6 @@ f = Foo()
 print(time.__dict__)
 print(time.__name__)
 print('__file__: ',import_test.__file__)
+print(type(time.__dict__['strftime'])) # <class 'builtin_function_or_method'>
 print(time.__dict__['strftime'].__class__)
 # print('__path__: ',import_test.__path__)
