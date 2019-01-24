@@ -58,7 +58,11 @@ g.__next__()
 print('*'*20)
 s = slice(2,5)
 print(s.start, s.stop, s.step)
-
+print(s.__class__)
+print(s.__dir__)
+print(type(s.__dir__))
+print(type(slice.__dir__))
+print(slice.__dir__)
 print('*'*20)
 
 
