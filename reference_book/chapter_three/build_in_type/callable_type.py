@@ -32,7 +32,7 @@ meth(37)
 umeth = Foo.instance_method # python3: function object has no attribute '__self__'
 umeth(f, 37)
 # umeth('haha',37)
-
+print('*'*50)
 print(type(meth))
 print(meth.__name__, meth.__class__, meth.__func__, meth.__self__)  # hexadecimal
 print(type(umeth))
