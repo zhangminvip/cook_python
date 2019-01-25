@@ -7,22 +7,25 @@ python内置的一些类型中
 • 可变对象：list dict set
 • 不可变对象：tuple string int float bool
 
-可变对象__hash__函数应该返回None,  这样写： __hash__ = None
+可变对象变化后内存地址不变
+不可变对象变化后内存地址改变
+所以可变对象__hash__函数应该返回None,  这样写： __hash__ = None
+
 == 号自动调用__eq__函数。
 is 检查的是对象内存地址。
 
 '''
 
-
-
-
-
-
-
 class Example():
 
     def __init__(self, val):
-        self.value = val
+        '''
+        :param val: int
+        '''
+        if isinstance(val, int):
+            self.value = val
+        else:
+            raise IOError('Initialization parameters should be integer')
 
     def __eq__(self, other):
         if self.value == other.value:
@@ -35,9 +38,19 @@ class Example():
         return int(id(self) / 6)
 
 
+    def __repr__(self):
+        # print('value: ',self.value)
+        return '(repr) value: ' + str(self.value)
+
+    def __str__(self):
+        return '(str) value: ' + str(self.value)
+
+
+
 e = Example(7)
 d = Example(7)
 r = Example(8)
+
 print(e == d)
 print(e == r)
 print(hash(e))
