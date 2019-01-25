@@ -1,3 +1,24 @@
+# coding:utf-8
+'''
+可变对象与不可变对象的区别在于对象本身是否可变。
+
+python内置的一些类型中
+
+• 可变对象：list dict set
+• 不可变对象：tuple string int float bool
+
+可变对象__hash__函数应该返回None,  这样写： __hash__ = None
+== 号自动调用__eq__函数。
+is 检查的是对象内存地址。
+
+'''
+
+
+
+
+
+
+
 class Example():
 
     def __init__(self, val):
