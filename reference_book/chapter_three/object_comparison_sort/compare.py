@@ -45,6 +45,15 @@ class Example():
     def __str__(self):
         return '(str) value: ' + str(self.value)
 
+    def __lt__(self, other):
+        print('lt'.center(50, '*'))
+        if self.value < other.value:
+            print('True')
+            return True
+        else:
+            print('False')
+            False
+
 
 
 e = Example(7)
@@ -54,3 +63,9 @@ r = Example(8)
 print(e == d)
 print(e == r)
 print(hash(e))
+
+
+t = [r, d, e]
+print(t)
+t_result = max(t)
+print(t_result)
