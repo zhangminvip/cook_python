@@ -54,6 +54,12 @@ class Example():
             print('False')
             False
 
+    def __instancecheck__(self, instance):
+        '''???'''
+        print('haha')
+        return 'haha'
+
+
 
 
 e = Example(7)
@@ -69,3 +75,5 @@ t = [r, d, e]
 print(t)
 t_result = max(t)
 print(t_result)
+
+print(isinstance(e, Example))
