@@ -8,7 +8,7 @@ exitFlag = 1
 
 class myThread(threading.Thread):
     def __init__(self, threadID, name, counter):
-        threading.Thread.__init__(self)
+        threading.Thread.__init__(self)   # assert self._initialized, "Thread.__init__() not called"
         self.threadID = threadID
         self.name = name
         self.counter = counter
