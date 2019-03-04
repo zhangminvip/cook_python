@@ -23,6 +23,9 @@ def decrement_with_lock():
 
 
 def increment_without_lock():
+    '''为什么最后值不等于0: 因为shared_resource_without_lock +1执行后，
+    -1操作可能执行了几次了，如果我们把+1后的值赋给全局变量，就相当于-1白做了，（没赋值就跳转（加锁就是杜绝这种情况），他赋值了，他就白做了，赋值后跳转，他赋值了，再跳回来，我就白做了）（他赋值被我改了，我赋值被他改了）
+    加锁操作就是让次都不白做，不中断自增和自减，原子操作概念：不中断自增自减'''
     global shared_resource_without_lock
     for i in range(COUNT):
         shared_resource_without_lock += 1
