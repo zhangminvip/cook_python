@@ -13,7 +13,7 @@ class producer(multiprocessing.Process):
             self.queue.put(item)
             print('Process Producer: item %d appended to queue %s', (item, self.name))
             time.sleep(1)
-            print('The size of queue is %s' % self.queue.qsize)
+            print('The size of queue is %s' % self.queue.qsize())
 
 
 class consumer(multiprocessing.Process):
