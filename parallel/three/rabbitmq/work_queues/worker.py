@@ -1,20 +1,32 @@
+from multiprocessing import Process
 import pika
 import time
 
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
-channel = connection.channel()
 
-channel.queue_declare(queue='task_queue', durable=True)
-print(' [*] Waiting for messages. To exit press CTRL+C')
+def create_worker():
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+    channel = connection.channel()
 
-def callback(ch, method, properties, body):
-    print(" [x] Received %r" % body)
-    time.sleep(body.count(b'.'))
-    print(" [x] Done")
-    ch.basic_ack(delivery_tag = method.delivery_tag)
+    channel.queue_declare(queue='task_queue', durable=True)
+    print(' [*] Waiting for messages. To exit press CTRL+C')
 
-channel.basic_qos(prefetch_count=1)
-channel.basic_consume(callback,
-                      queue='task_queue')
+    def callback(ch, method, properties, body):
+        print(" [x] Received %r" % body)
+        time.sleep(body.count(b'.'))
+        print(" [x] Done")
+        ch.basic_ack(delivery_tag = method.delivery_tag)
 
-channel.start_consuming()
+    channel.basic_qos(prefetch_count=1)
+    channel.basic_consume(callback,
+                        queue='task_queue')
+
+    channel.start_consuming()
+
+
+
+p1 = Process(target=create_worker, args=())
+p2 = Process(target=create_worker, args=())
+p1.start()
+p2.start()
+p1.join()
+p2.join()
